@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Homepage - CPM Calculator -->
+    <url>
+        <loc>https://cpmcalculator.click/</loc>
+        <lastmod>2025-01-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Homepage with anchor - Calculator Section -->
+    <url>
+        <loc>https://cpmcalculator.click/#calculator</loc>
+        <lastmod>2025-01-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Homepage with anchor - About CPM -->
+    <url>
+        <loc>https://cpmcalculator.click/#about</loc>
+        <lastmod>2025-01-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Homepage with anchor - Guide -->
+    <url>
+        <loc>https://cpmcalculator.click/#guide</loc>
+        <lastmod>2025-01-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Homepage with anchor - FAQ -->
+    <url>
+        <loc>https://cpmcalculator.click/#faq</loc>
+        <lastmod>2025-01-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Privacy Policy -->
+    <url>
+        <loc>https://cpmcalculator.click/privacy.html</loc>
+        <lastmod>2025-01-06</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+</urlset>
+
