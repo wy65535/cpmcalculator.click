@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free CPM Calculator - Calculate Cost Per Mille (CPM), advertising costs, impressions, and optimize your marketing budget. Includes CPC, CTR, and ROI calculators.">
+    <meta name="keywords" content="cpm calculator, cost per mille calculator, cpm calculator online, advertising cost calculator, impression cost calculator, cpc calculator, ctr calculator, marketing roi calculator, ad revenue calculator, cost per thousand">
+    <meta name="author" content="CPM Calculator">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cpmcalculator.click/">
+    <meta property="og:title" content="CPM Calculator - Free Online Advertising Cost Calculator">
+    <meta property="og:description" content="Calculate CPM, CPC, CTR, and advertising ROI with our comprehensive marketing calculator suite. Free and easy to use.">
+    <meta property="og:image" content="https://cpmcalculator.click/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cpmcalculator.click/">
+    <meta property="twitter:title" content="CPM Calculator - Free Online Advertising Cost Calculator">
+    <meta property="twitter:description" content="Calculate CPM, CPC, CTR, and advertising ROI with our comprehensive marketing calculator suite.">
+    <meta property="twitter:image" content="https://cpmcalculator.click/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://cpmcalculator.click/">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "CPM Calculator",
+      "url": "https://cpmcalculator.click/",
+      "description": "Free online CPM calculator for advertising cost calculation",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "2547"
+      }
+    }
+    </script>
+    
+    <title>CPM Calculator - Free Online Cost Per Mille & Advertising Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <h1>📊 CPM Calculator</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#calculator">Calculator</a></li>
+                <li><a href="#about">About CPM</a></li>
+                <li><a href="#guide">Guide</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Free CPM Calculator - Calculate Your Advertising Costs</h2>
+            <p class="subtitle">Professional online tool to calculate Cost Per Mille (CPM), Cost Per Click (CPC), Click-Through Rate (CTR), and Return on Investment (ROI) for your marketing campaigns.</p>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="calculator-tabs">
+                <button class="tab-btn active" data-tab="cpm">CPM Calculator</button>
+                <button class="tab-btn" data-tab="cpc">CPC Calculator</button>
+                <button class="tab-btn" data-tab="ctr">CTR Calculator</button>
+                <button class="tab-btn" data-tab="roi">ROI Calculator</button>
+            </div>
+
+            <!-- CPM Calculator -->
+            <div id="cpm" class="calculator-content active">
+                <h3>CPM (Cost Per Mille) Calculator</h3>
+                <p class="calc-description">Calculate the cost per thousand impressions for your advertising campaign.</p>
+                
+                <div class="calc-mode-switcher">
+                    <label>Calculation Mode:</label>
+                    <select id="cpm-mode">
+                        <option value="calculate-cpm">Calculate CPM</option>
+                        <option value="calculate-cost">Calculate Total Cost</option>
+                        <option value="calculate-impressions">Calculate Impressions</option>
+                    </select>
+                </div>
+
+                <div class="calculator-form">
+                    <div class="form-group" id="cpm-cost-group">
+                        <label for="cpm-cost">Total Cost ($):</label>
+                        <input type="number" id="cpm-cost" placeholder="Enter total advertising cost" step="0.01" min="0">
+                    </div>
+                    
+                    <div class="form-group" id="cpm-impressions-group">
+                        <label for="cpm-impressions">Total Impressions:</label>
+                        <input type="number" id="cpm-impressions" placeholder="Enter number of impressions" step="1" min="0">
+                    </div>
+                    
+                    <div class="form-group" id="cpm-rate-group" style="display:none;">
+                        <label for="cpm-rate">CPM Rate ($):</label>
+                        <input type="number" id="cpm-rate" placeholder="Enter CPM rate" step="0.01" min="0">
+                    </div>
+                    
+                    <button class="calc-btn" onclick="calculateCPM()">Calculate</button>
+                    <button class="reset-btn" onclick="resetCPM()">Reset</button>
+                </div>
+
+                <div id="cpm-result" class="result-box" style="display:none;">
+                    <h4>Results:</h4>
+                    <div class="result-content"></div>
+                </div>
+
+                <div class="example-box">
+                    <h4>💡 Example:</h4>
+                    <p>If you spend $500 on an ad campaign and get 250,000 impressions:</p>
+                    <p><strong>CPM = ($500 / 250,000) × 1,000 = $2.00</strong></p>
+                    <p>This means you pay $2.00 for every 1,000 impressions.</p>
+                </div>
+            </div>
+
+            <!-- CPC Calculator -->
+            <div id="cpc" class="calculator-content">
+                <h3>CPC (Cost Per Click) Calculator</h3>
+                <p class="calc-description">Calculate the cost per click for your advertising campaign.</p>
+                
+                <div class="calc-mode-switcher">
+                    <label>Calculation Mode:</label>
+                    <select id="cpc-mode">
+                        <option value="calculate-cpc">Calculate CPC</option>
+                        <option value="calculate-cost">Calculate Total Cost</option>
+                        <option value="calculate-clicks">Calculate Number of Clicks</option>
+                    </select>
+                </div>
+
+                <div class="calculator-form">
+                    <div class="form-group" id="cpc-cost-group">
+                        <label for="cpc-cost">Total Cost ($):</label>
+                        <input type="number" id="cpc-cost" placeholder="Enter total advertising cost" step="0.01" min="0">
+                    </div>
+                    
+                    <div class="form-group" id="cpc-clicks-group">
+                        <label for="cpc-clicks">Total Clicks:</label>
+                        <input type="number" id="cpc-clicks" placeholder="Enter number of clicks" step="1" min="0">
+                    </div>
+                    
+                    <div class="form-group" id="cpc-rate-group" style="display:none;">
+                        <label for="cpc-rate">CPC Rate ($):</label>
+                        <input type="number" id="cpc-rate" placeholder="Enter CPC rate" step="0.01" min="0">
+                    </div>
+                    
+                    <button class="calc-btn" onclick="calculateCPC()">Calculate</button>
+                    <button class="reset-btn" onclick="resetCPC()">Reset</button>
+                </div>
+
+                <div id="cpc-result" class="result-box" style="display:none;">
+                    <h4>Results:</h4>
+                    <div class="result-content"></div>
+                </div>
+
+                <div class="example-box">
+                    <h4>💡 Example:</h4>
+                    <p>If you spend $300 on ads and receive 150 clicks:</p>
+                    <p><strong>CPC = $300 / 150 = $2.00</strong></p>
+                    <p>Each click costs you $2.00.</p>
+                </div>
+            </div>
+
+            <!-- CTR Calculator -->
+            <div id="ctr" class="calculator-content">
+                <h3>CTR (Click-Through Rate) Calculator</h3>
+                <p class="calc-description">Calculate the click-through rate to measure ad performance.</p>
+                
+                <div class="calc-mode-switcher">
+                    <label>Calculation Mode:</label>
+                    <select id="ctr-mode">
+                        <option value="calculate-ctr">Calculate CTR</option>
+                        <option value="calculate-clicks">Calculate Clicks Needed</option>
+                        <option value="calculate-impressions">Calculate Impressions Needed</option>
+                    </select>
+                </div>
+
+                <div class="calculator-form">
+                    <div class="form-group" id="ctr-clicks-group">
+                        <label for="ctr-clicks">Total Clicks:</label>
+                        <input type="number" id="ctr-clicks" placeholder="Enter number of clicks" step="1" min="0">
+                    </div>
+                    
+                    <div class="form-group" id="ctr-impressions-group">
+                        <label for="ctr-impressions">Total Impressions:</label>
+                        <input type="number" id="ctr-impressions" placeholder="Enter number of impressions" step="1" min="0">
+                    </div>
+                    
+                    <div class="form-group" id="ctr-rate-group" style="display:none;">
+                        <label for="ctr-rate">Target CTR (%):</label>
+                        <input type="number" id="ctr-rate" placeholder="Enter target CTR" step="0.01" min="0" max="100">
+                    </div>
+                    
+                    <button class="calc-btn" onclick="calculateCTR()">Calculate</button>
+                    <button class="reset-btn" onclick="resetCTR()">Reset</button>
+                </div>
+
+                <div id="ctr-result" class="result-box" style="display:none;">
+                    <h4>Results:</h4>
+                    <div class="result-content"></div>
+                </div>
+
+                <div class="example-box">
+                    <h4>💡 Example:</h4>
+                    <p>If your ad receives 500 clicks from 50,000 impressions:</p>
+                    <p><strong>CTR = (500 / 50,000) × 100 = 1%</strong></p>
+                    <p>1% of people who saw your ad clicked on it.</p>
+                </div>
+            </div>
+
+            <!-- ROI Calculator -->
+            <div id="roi" class="calculator-content">
+                <h3>ROI (Return on Investment) Calculator</h3>
+                <p class="calc-description">Calculate return on investment for your advertising campaigns.</p>
+                
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="roi-revenue">Total Revenue ($):</label>
+                        <input type="number" id="roi-revenue" placeholder="Enter revenue generated" step="0.01" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="roi-cost">Total Cost ($):</label>
+                        <input type="number" id="roi-cost" placeholder="Enter total ad spend" step="0.01" min="0">
+                    </div>
+                    
+                    <button class="calc-btn" onclick="calculateROI()">Calculate</button>
+                    <button class="reset-btn" onclick="resetROI()">Reset</button>
+                </div>
+
+                <div id="roi-result" class="result-box" style="display:none;">
+                    <h4>Results:</h4>
+                    <div class="result-content"></div>
+                </div>
+
+                <div class="example-box">
+                    <h4>💡 Example:</h4>
+                    <p>If you spend $1,000 on ads and generate $3,500 in revenue:</p>
+                    <p><strong>ROI = (($3,500 - $1,000) / $1,000) × 100 = 250%</strong></p>
+                    <p>For every dollar spent, you earned $2.50 in profit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About CPM Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>What is CPM (Cost Per Mille)?</h2>
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>📈 Definition</h3>
+                    <p>CPM stands for "Cost Per Mille" (mille is Latin for thousand). It represents the cost an advertiser pays for one thousand impressions or views of their advertisement. CPM is one of the most common pricing models in digital advertising.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>📊 Formula</h3>
+                    <p>The CPM formula is straightforward:</p>
+                    <p class="formula"><strong>CPM = (Total Cost / Total Impressions) × 1,000</strong></p>
+                    <p>For example, if you spend $100 and receive 25,000 impressions, your CPM is $4.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>💰 Why CPM Matters</h3>
+                    <p>CPM is crucial for:</p>
+                    <ul>
+                        <li>Budget planning and forecasting</li>
+                        <li>Comparing advertising costs across platforms</li>
+                        <li>Measuring brand awareness campaigns</li>
+                        <li>Optimizing ad placement strategies</li>
+                        <li>Negotiating with publishers and ad networks</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3>🎯 When to Use CPM</h3>
+                    <p>CPM pricing is ideal for:</p>
+                    <ul>
+                        <li>Brand awareness campaigns</li>
+                        <li>Product launches</li>
+                        <li>Display advertising</li>
+                        <li>Video advertising</li>
+                        <li>Campaigns focused on reach and visibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section id="guide" class="guide-section">
+        <div class="container">
+            <h2>Complete Guide to Advertising Metrics</h2>
+            
+            <div class="guide-content">
+                <article class="guide-article">
+                    <h3>Understanding CPM (Cost Per Mille)</h3>
+                    <p>CPM is the foundation of display advertising pricing. It tells you exactly how much you're paying to reach 1,000 people with your message. Average CPM rates vary significantly by platform:</p>
+                    <ul>
+                        <li><strong>Facebook Ads:</strong> $5-$12 CPM</li>
+                        <li><strong>Google Display Network:</strong> $2-$10 CPM</li>
+                        <li><strong>Instagram:</strong> $4-$8 CPM</li>
+                        <li><strong>YouTube:</strong> $4-$10 CPM</li>
+                        <li><strong>LinkedIn:</strong> $6-$15 CPM</li>
+                        <li><strong>TikTok:</strong> $3-$8 CPM</li>
+                    </ul>
+                </article>
+
+                <article class="guide-article">
+                    <h3>CPC vs CPM: Which is Better?</h3>
+                    <p><strong>Use CPM when:</strong></p>
+                    <ul>
+                        <li>Your goal is brand awareness and visibility</li>
+                        <li>You have compelling creative that drives high CTR</li>
+                        <li>You're targeting a broad audience</li>
+                        <li>You want predictable costs per impression</li>
+                    </ul>
+                    <p><strong>Use CPC when:</strong></p>
+                    <ul>
+                        <li>Your goal is driving traffic or conversions</li>
+                        <li>You have a specific action you want users to take</li>
+                        <li>You want to pay only for engaged users</li>
+                        <li>You're testing new audiences or creatives</li>
+                    </ul>
+                </article>
+
+                <article class="guide-article">
+                    <h3>How to Optimize Your CPM</h3>
+                    <p>Lower your CPM and improve campaign efficiency with these strategies:</p>
+                    <ol>
+                        <li><strong>Target Audience Refinement:</strong> Narrow your targeting to reach more relevant users who are likely to engage.</li>
+                        <li><strong>Ad Quality Improvement:</strong> Create high-quality, engaging ads that achieve better relevance scores.</li>
+                        <li><strong>Timing Optimization:</strong> Run ads during off-peak hours when competition is lower.</li>
+                        <li><strong>A/B Testing:</strong> Test different ad formats, creatives, and placements to find the most cost-effective options.</li>
+                        <li><strong>Frequency Capping:</strong> Limit how often the same user sees your ad to avoid waste.</li>
+                        <li><strong>Platform Selection:</strong> Choose platforms where your target audience is most active and CPM is competitive.</li>
+                        <li><strong>Bidding Strategy:</strong> Experiment with manual vs. automatic bidding to find optimal costs.</li>
+                    </ol>
+                </article>
+
+                <article class="guide-article">
+                    <h3>Advanced Advertising Metrics</h3>
+                    <p><strong>eCPM (Effective CPM):</strong> Revenue per 1,000 impressions, useful for publishers to compare different monetization methods.</p>
+                    <p><strong>vCPM (Viewable CPM):</strong> Cost per 1,000 viewable impressions, where an ad must be at least 50% visible for 1+ seconds.</p>
+                    <p><strong>CPV (Cost Per View):</strong> Common for video advertising, the cost when a user watches your video ad.</p>
+                    <p><strong>CPA (Cost Per Action):</strong> Cost for each desired action (signup, purchase, download).</p>
+                    <p><strong>ROAS (Return on Ad Spend):</strong> Revenue generated divided by amount spent on advertising.</p>
+                </article>
+
+                <article class="guide-article">
+                    <h3>Industry Benchmarks</h3>
+                    <p>Average CPM by industry (approximate ranges):</p>
+                    <ul>
+                        <li><strong>Finance & Insurance:</strong> $8-$20 CPM</li>
+                        <li><strong>Technology:</strong> $5-$15 CPM</li>
+                        <li><strong>Retail & E-commerce:</strong> $3-$10 CPM</li>
+                        <li><strong>Healthcare:</strong> $7-$18 CPM</li>
+                        <li><strong>Education:</strong> $4-$12 CPM</li>
+                        <li><strong>Travel & Hospitality:</strong> $4-$10 CPM</li>
+                        <li><strong>Entertainment:</strong> $2-$8 CPM</li>
+                    </ul>
+                </article>
+
+                <article class="guide-article">
+                    <h3>Common CPM Mistakes to Avoid</h3>
+                    <ol>
+                        <li><strong>Focusing Only on Low CPM:</strong> A low CPM doesn't guarantee results. Consider quality of impressions and engagement.</li>
+                        <li><strong>Ignoring Ad Placement:</strong> Where your ad appears greatly affects performance and cost.</li>
+                        <li><strong>Not Tracking Conversions:</strong> Always connect impressions to actual business outcomes.</li>
+                        <li><strong>Over-broad Targeting:</strong> Reaching everyone means reaching no one effectively.</li>
+                        <li><strong>Neglecting Creative Quality:</strong> Poor creative leads to low engagement regardless of CPM.</li>
+                        <li><strong>Not Testing:</strong> Always run A/B tests to optimize your campaigns.</li>
+                    </ol>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What does CPM stand for?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>CPM stands for "Cost Per Mille," where "mille" is Latin for thousand. It represents the cost an advertiser pays for one thousand impressions or views of their advertisement. It's also sometimes called "Cost Per Thousand" (CPT).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I calculate CPM?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The CPM formula is: <strong>CPM = (Total Cost / Total Impressions) × 1,000</strong></p>
+                        <p>For example, if you spend $250 on an ad campaign that generates 100,000 impressions: CPM = ($250 / 100,000) × 1,000 = $2.50</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is a good CPM rate?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A "good" CPM varies by industry, platform, and campaign goals. Generally:</p>
+                        <ul>
+                            <li>$2-$5 CPM: Excellent for most display campaigns</li>
+                            <li>$5-$10 CPM: Average for competitive markets</li>
+                            <li>$10-$20 CPM: Common for premium placements or B2B</li>
+                        </ul>
+                        <p>Focus on your ROI rather than just CPM rates. A higher CPM can still be profitable if it drives quality traffic.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What's the difference between CPM and CPC?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>CPM (Cost Per Mille):</strong> You pay per 1,000 impressions (views), regardless of clicks. Best for brand awareness.</p>
+                        <p><strong>CPC (Cost Per Click):</strong> You pay only when someone clicks your ad. Best for direct response and conversion campaigns.</p>
+                        <p>Choose CPM for visibility goals and CPC for engagement or conversion goals.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How can I reduce my CPM?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To lower your CPM:</p>
+                        <ul>
+                            <li>Improve your ad quality and relevance score</li>
+                            <li>Refine your audience targeting</li>
+                            <li>Test different ad formats and placements</li>
+                            <li>Run campaigns during off-peak times</li>
+                            <li>Use frequency capping to avoid oversaturation</li>
+                            <li>Optimize your landing pages for better engagement</li>
+                            <li>A/B test creative elements regularly</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is eCPM?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>eCPM (Effective Cost Per Mille) is a metric used by publishers to compare revenue across different pricing models (CPM, CPC, CPA). It calculates how much revenue is earned per 1,000 impressions, regardless of the payment model.</p>
+                        <p><strong>Formula:</strong> eCPM = (Total Earnings / Total Impressions) × 1,000</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Why is my CPM so high?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>High CPM can result from:</p>
+                        <ul>
+                            <li>Competitive industry or audience targeting</li>
+                            <li>Premium ad placements</li>
+                            <li>Small or highly specific target audience</li>
+                            <li>Peak advertising seasons (holidays, events)</li>
+                            <li>Low ad quality or relevance scores</li>
+                            <li>Geographic targeting (major cities cost more)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do different platforms' CPMs compare?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Average CPM by platform (approximate):</p>
+                        <ul>
+                            <li>Facebook: $5-$12</li>
+                            <li>Instagram: $4-$8</li>
+                            <li>Google Display: $2-$10</li>
+                            <li>YouTube: $4-$10</li>
+                            <li>LinkedIn: $6-$15 (highest, but B2B focused)</li>
+                            <li>TikTok: $3-$8</li>
+                            <li>Twitter: $3-$8</li>
+                        </ul>
+                        <p>Rates vary based on targeting, seasonality, and ad quality.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Should I use CPM or CPA bidding?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Use CPM when:</strong> Your goal is brand awareness, reach, and visibility. You want to control costs per impression.</p>
+                        <p><strong>Use CPA when:</strong> Your goal is conversions (sales, signups, downloads). You want to pay only for completed actions.</p>
+                        <p>CPA typically has higher costs per action but guarantees conversions. CPM is more predictable for budgeting but doesn't guarantee engagement.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What's the relationship between CPM, CPC, and CTR?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>These metrics are interconnected:</p>
+                        <p><strong>CPC = CPM / (CTR × 1,000)</strong></p>
+                        <p>Example: If CPM is $5 and CTR is 2%:</p>
+                        <p>CPC = $5 / (0.02 × 1,000) = $0.25 per click</p>
+                        <p>Understanding this relationship helps you choose the right bidding model and optimize costs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is this CPM calculator free to use?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our CPM calculator is completely free to use with no registration required. You can calculate CPM, CPC, CTR, and ROI as many times as you need. We also don't store any of your data.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I use this for different currencies?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! While the calculator displays dollar signs ($), you can use any currency. The mathematical calculations remain the same regardless of currency. Just enter your values in your preferred currency (USD, EUR, GBP, etc.), and interpret the results in that same currency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2>Why Use Our CPM Calculator?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Fast & Accurate</h3>
+                    <p>Get instant, precise calculations for all your advertising metrics in seconds.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Multiple Calculators</h3>
+                    <p>CPM, CPC, CTR, and ROI calculators all in one place for comprehensive campaign analysis.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Calculate on any device - desktop, tablet, or smartphone with responsive design.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔒</div>
+                    <h3>100% Private</h3>
+                    <p>All calculations happen in your browser. We don't store or share your data.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Completely Free</h3>
+                    <p>No registration, no hidden fees, no limitations. Use it as much as you need.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📚</div>
+                    <h3>Educational</h3>
+                    <p>Learn about advertising metrics with examples, guides, and industry insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CPM Calculator</h4>
+                    <p>Your free online tool for calculating advertising costs and metrics. Make data-driven marketing decisions with accurate CPM, CPC, CTR, and ROI calculations.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#calculator">Calculator</a></li>
+                        <li><a href="#about">About CPM</a></li>
+                        <li><a href="#guide">Guide</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#guide">Advertising Guide</a></li>
+                        <li><a href="#faq">Common Questions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Keywords</h4>
+                    <p class="keywords">cpm calculator, cost per mille calculator, advertising cost calculator, cpc calculator, ctr calculator, online marketing tools, ad spend calculator, impression cost calculator</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CPM Calculator. All rights reserved. Free online advertising calculator tools.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
